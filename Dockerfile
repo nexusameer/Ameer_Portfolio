@@ -1,17 +1,8 @@
 # Use the official Python image from Docker Hub
-FROM python:3.9-slim
-
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1  # Prevents Python from writing pyc files
-ENV PYTHONUNBUFFERED 1        # Ensures output is sent directly to the terminal
+FROM python:3.12-slim
 
 # Set the working directory inside the container
 WORKDIR /app
-
-# Install system dependencies
-RUN apt-get update && \
-    apt-get install -y gcc libpq-dev && \
-    rm -rf /var/lib/apt/lists/*
 
 # Copy the requirements file and install dependencies
 COPY requirements.txt .
