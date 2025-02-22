@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: django
-        image: nexusameer/myporfolio
+        image: nexusameer/myportfolio
         ports:
         - containerPort: 8000
         env:
