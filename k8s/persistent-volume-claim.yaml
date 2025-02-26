@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""  # Empty string ensures it uses the PV directly
+  resources:
+    requests:
+      storage: 1Gi
