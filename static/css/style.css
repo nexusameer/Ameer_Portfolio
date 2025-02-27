@@ -9682,3 +9682,21 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+    html, body {
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+  
+  section {
+      max-height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+  }
+  
+  .one-third.js-fullheight.order-md-last.img {
+      max-height: 90vh;
+      overflow: hidden;
+  }
+  
