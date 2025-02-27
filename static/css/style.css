@@ -57,7 +57,9 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: #fff; 
+  scrollbar-width: thin;           /* Options: auto, thin, none */
+  scrollbar-color: #888 #f1f1f1;}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -9682,3 +9684,23 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+/* Ensure the scrollbar is always visible */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 12px;
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+}
+
