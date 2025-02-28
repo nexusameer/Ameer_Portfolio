@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 # Create your views here.
 def index(request):
     person = Person.load()
-    background = Background.objects.all()
+    background = Background.objects.all().order_by('-id')
     skills = Skills.objects.all()
     project = Projects.objects.all()
     languages = Languages.objects.all()
