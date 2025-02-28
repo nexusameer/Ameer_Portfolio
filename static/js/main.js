@@ -275,3 +275,19 @@
 
 })(jQuery);
 
+document.addEventListener("DOMContentLoaded", function () {
+	var navbarCollapse = document.getElementById("ftco-nav");
+	var navbarToggler = document.querySelector(".navbar-toggler");
+	
+	document.querySelectorAll(".nav-link").forEach(function (navLink) {
+	  navLink.addEventListener("click", function () {
+		if (navbarCollapse.classList.contains("show")) {
+		  navbarToggler.click(); // Simulate a click on the toggler to close the menu
+		}
+	  });
+	});
+  });
+  
+  $('.navbar-collapse a').click(function(){
+	$(".navbar-collapse").collapse('hide');
+});
