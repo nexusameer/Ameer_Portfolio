@@ -18,7 +18,7 @@ class SingletonModel(models.Model):
 
 class Person(SingletonModel):
     name = models.CharField(max_length=100)
-    dob = models.DateField()
+    dob = models.DateField(null=True, blank=True)
     address = models.CharField(max_length=200)
     zip_code = models.CharField(max_length=10)
     email = models.EmailField()
