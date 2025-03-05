@@ -2,8 +2,6 @@
 {% block content %}
 {% load static %}
 <section id="home-section" class="hero">
-    <div class="home-slider  owl-carousel">
-<section id="home-section" class="hero">
         <div class="home-slider  owl-carousel">
         <div class="slider-item ">
             <div class="overlay"></div>
@@ -12,7 +10,6 @@
                     data-scrollax-parent="true">
                     <div class="one-third js-fullheight order-md-last img"
                         style="background-image:url({{person.image.url}}); width: 500px;">
-                         style="background-image: url('{{ person.image.url }}');">
                         <div class="overlay"></div>
                     </div>
                     <div class="one-forth d-flex  align-items-center ftco-animate"
@@ -164,18 +161,23 @@
         </div>
         <div class="row">
             {% for l in languages %}
-            <div class="col-md-6 animate-box">
-                <div class="progress-wrap ftco-animate">
-                    <h3>{{l.name}}</h3>
-                    <div class="progress">
-                        <div class="progress-bar color-1" role="progressbar" aria-valuenow="{{l.percentage}}"
-                             aria-valuemin="0" aria-valuemax="100" style="width:{{l.percentage}}%">
-                            <span>{{l.percentage}}%</span>
-                        </div>
-                    </div>
-                </div>
+<div class="col-md-6 animate-box">
+    <div class="progress-wrap ftco-animate">
+        <h3 class="d-flex justify-content-between">
+            <span>{{ l.name }}</span>
+            <span class="text-white">{{ l.percentage }}%</span>
+        </h3>
+        <div class="progress">
+            <div class="progress-bar color-1" role="progressbar" 
+                aria-valuenow="{{ l.percentage }}" 
+                aria-valuemin="0" aria-valuemax="100" 
+                style="width: {{ l.percentage }}%;">
             </div>
-            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
         </div>
     </div>
 </section>
