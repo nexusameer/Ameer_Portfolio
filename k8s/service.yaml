@@ -6,7 +6,7 @@ spec:
   selector:
     app: portfolio
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8001
+  - protocol: TCP
+    port: 80
+    targetPort: 8001
   type: LoadBalancer
