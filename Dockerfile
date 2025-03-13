@@ -10,12 +10,15 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# Copy the entire Django project
+COPY . /app/
+
 # Copy the requirements file and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire Django project
-COPY . .
+RUN python manage.py collectstatic --noinput
+
 
 # Expose the application port
 EXPOSE 8001
