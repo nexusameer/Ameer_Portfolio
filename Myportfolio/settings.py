@@ -133,14 +133,13 @@ USE_TZ = True
 FORCE_SCRIPT_NAME = os.getenv('FORCE_SCRIPT_NAME', '')
 
 
-STATIC_URL = 'static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_URL = FORCE_SCRIPT_NAME + '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
-MEDIA_URL = '/media/'
+MEDIA_URL = FORCE_SCRIPT_NAME + '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
