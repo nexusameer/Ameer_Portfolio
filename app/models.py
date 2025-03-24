@@ -52,6 +52,13 @@ class Background(models.Model):
 
 class Skills(models.Model):
     name = models.CharField(max_length=100)
+    icon_class = models.CharField(max_length=100)
+    position = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['position']
+        verbose_name = "Skill"
+        verbose_name_plural = "Skills"
 
     def __str__(self):
         return self.name
@@ -60,6 +67,12 @@ class Skills(models.Model):
 class Languages(models.Model):
     name = models.CharField(max_length=100)
     percentage = models.IntegerField()
+    position = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['position']
+        verbose_name = "Language"
+        verbose_name_plural = "Languages"
 
     def __str__(self):
         return self.name
@@ -69,13 +82,24 @@ class Projects(models.Model):
     type = models.CharField(max_length=100)
     url = models.CharField(max_length=200)
     image = models.ImageField(upload_to='portfolio/images/')
-    position = models.PositiveIntegerField(default=0)  # Custom ordering field
+    position = models.PositiveIntegerField(default=0)
+    short_description = models.TextField(blank=True, null=True)  # Added short description
+    technologies = models.CharField(max_length=255, blank=True, null=True, help_text="Comma-separated list of technologies used.") # Added technologies
+    github_url = models.URLField(blank=True, null=True) # Added github_url
 
     class Meta:
-        ordering = ['position']  # Order by position in ascending order
+        ordering = ['position']
+        verbose_name = "Project"
+        verbose_name_plural = "Projects"
 
     def __str__(self):
         return self.title
+
+    def get_technologies_list(self):
+        if self.technologies:
+            return [tech.strip() for tech in self.technologies.split(',')]
+        else:
+            return [] #returns empty list if technologies are null.
 
 
 
