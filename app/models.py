@@ -69,9 +69,14 @@ class Projects(models.Model):
     type = models.CharField(max_length=100)
     url = models.CharField(max_length=200)
     image = models.ImageField(upload_to='portfolio/images/')
+    position = models.PositiveIntegerField(default=0)  # Custom ordering field
+
+    class Meta:
+        ordering = ['position']  # Order by position in ascending order
 
     def __str__(self):
         return self.title
+
 
 
 class Contact(models.Model):
