@@ -39,6 +39,15 @@ def index(request):
     }
     return render(request, 'app/index.html', context)
 
+def project(request):
+    person = Person.load()
+    project = Projects.objects.all()
+    context = {
+        'project': project,
+        'person': person,
+    }
+    return render(request, 'app/projects.html', context)
+
 
 def download_document(request, document_id):
     person = get_object_or_404(Person, pk=document_id)

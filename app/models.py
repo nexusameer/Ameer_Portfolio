@@ -78,6 +78,7 @@ class Languages(models.Model):
         return self.name
 
 class Projects(models.Model):
+    
     title = models.CharField(max_length=200)
     type = models.CharField(max_length=100)
     url = models.CharField(max_length=200)

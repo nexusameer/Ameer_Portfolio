@@ -1,0 +1,55 @@
+{% extends "app/base.html" %}
+{% block content %}
+{% load static %}
+<div class="container">
+  <a class="navbar-brand" href="#home-section">{{person.name}}</a>
+  <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="oi oi-menu"></span> Menu
+  </button>
+  <div class="collapse navbar-collapse" id="ftco-nav">
+    <ul class="navbar-nav nav ml-auto">
+      <li class="nav-item"><a href="{% url 'index' %}#home" class="nav-link"><span>Home</span></a></li>
+      <li class="nav-item"><a href="{% url 'index' %}#services-section" class="nav-link"><span>Tools</span></a></li>
+      <li class="nav-item"><a href="{% url 'index' %}#skills-section" class="nav-link"><span>Tech Stack</span></a></li>
+      <li class="nav-item"><a href="{% url 'index' %}#projects-section" class="nav-link"><span>Projects</span></a></li>
+      <li class="nav-item"><a href="{% url 'index' %}#resume-section" class="nav-link"><span>Resume</span></a></li>
+      <li class="nav-item"><a href="{% url 'index' %}#contact-section" class="nav-link"><span>Contact</span></a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<section class="projects-section" style="padding: 100px 0;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+      <div class="section-heading" style="text-align: center; margin-bottom: 40px;">
+        <h2 class="section-title" style="font-size: 2.5em; margin-bottom: 10px;">My Projects</h2>
+        <p class="section-description" style="font-size: 1.1em; color: #666; max-width: 700px; margin: 0 auto;">
+          Explore a selection of my projects, showcasing my skills and dedication to creating impactful solutions.
+        </p>
+      </div>
+      
+      <!-- First 6 Projects -->
+      <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        {% for project in project%}
+        <div class="project-card" style="border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+          <a href="{{ project.url }}" target="_blank" class="project-link" style="display: block; text-decoration: none; color: inherit;">
+            <div class="project-image" style="height: 250px; background-size: cover; background-position: center; position: relative; background-image: url({{ project.image.url }});">
+              <div class="project-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); opacity: 0; transition: opacity 0.3s ease;"></div>
+            </div>
+            <div class="project-details" style="padding: 20px;">
+              <h3 class="project-title" style="font-size: 1.5em; margin-bottom: 5px;">{{ project.title }}</h3>
+              <p class="project-type" style="font-style: italic; color: #666; margin-bottom: 10px;">{{ project.type }}</p>
+              <div class="project-actions" style="display: flex; gap: 10px;">
+                {% if project.github_url %}
+                <a href="{{ project.github_url }}" target="_blank" style="background-color: #007bff; color: white; padding: 8px 15px; border-radius: 4px; text-decoration: none; transition: background-color 0.3s ease;">GitHub</a>
+                {% endif %}
+                <a href="{{ project.url }}" target="_blank" style="background-color: #007bff; color: white; padding: 8px 15px; border-radius: 4px; text-decoration: none; transition: background-color 0.3s ease;">View Project</a>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock content %}
