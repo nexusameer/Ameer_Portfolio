@@ -9057,7 +9057,21 @@ h1, h2, h3, h4, h5,
   .view-project:hover {
       background-color: #0056b3;
   }
-
+  @media (max-width: 768px) {
+    .projects-section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .projects-grid {
+        gap: 20px;
+    }
+    
+    .project-card {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
 
 
 
