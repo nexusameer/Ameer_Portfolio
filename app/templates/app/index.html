@@ -2,52 +2,36 @@
 {% block content %}
 {% load static %}
 <section id="home-section" class="hero">
-        <div class="home-slider  owl-carousel">
-        <div class="slider-item ">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end"
-                    data-scrollax-parent="true">
-                    <div class="one-third js-fullheight order-md-last img"
-                        style="background-image:url({{person.image.url}}); width: 500px;">
-                        <div class="overlay"></div>
-                    </div>
-                    <div class="one-forth d-flex  align-items-center ftco-animate"
-                        data-scrollax=" properties: { translateY: '70%' }">
-                        <div class="text">
-                            <span class="subheading">Hello!</span>
-                            <h1 class="mb-4 mt-3">I'm <span>{{person.name}}</span></h1>
-                            <h2 class="mb-4">A Devops Engineer</h2>
-                            <p><a href="#about-section" class="btn btn-primary py-3 px-4">About</a> 
-                                <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My
-                                Projects</a></p>
-                        </div>
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-subtitle">Hello, I'm</span>
+                <h1 class="hero-title">{{person.name}}</h1>
+                <h2 class="hero-tagline">DevOps Engineer & Cloud Specialist</h2>
+                <p class="hero-description">Building scalable infrastructure and automating workflows to deliver seamless digital experiences.</p>
+                <div class="hero-buttons">
+                    <a href="#about-section" class="btn btn-primary">About Me</a>
+                    <a href="#projects-section" class="btn btn-secondary">My Projects</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="{{person.image.url}}" alt="{{person.name}}" class="profile-image">
+                    <div class="image-overlay"></div>
+                    <div class="tech-icons">
+                        <div class="icon"><i class="fab fa-aws"></i></div>
+                        <div class="icon"><i class="fab fa-docker"></i></div>
+                        <div class="icon"><i class="fab fa-linux"></i></div>
+                        <div class="icon"><i class="fab fa-python"></i></div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="slider-item">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row d-flex no-gutters slider-text align-items-end justify-content-end"
-                     data-scrollax-parent="true">
-                    <div class="one-third js-fullheight order-md-last img"
-                         style="background-image:url('{{person.image1.url}}'); width: 500px;">
-                        <div class="overlay"></div>
-                    </div>
-                    <div class="one-forth d-flex align-items-center ftco-animate"
-                         data-scrollax=" properties: { translateY: '70%' }">
-                        <div class="text">
-                            <span class="subheading">Hello!</span>
-                            <h1 class="mb-4 mt-3">I'm a <span>Devops Engineer</span> based in Lahore</h1>
-                            <p><a href="#about-section" class="btn btn-primary py-3 px-4">About</a> 
-                                <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My
-                                Projects</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-scroll">
+            <a href="#about-section" class="scroll-down">
+                <span class="scroll-text">Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
         </div>
     </div>
 </section>
